@@ -11,16 +11,17 @@ public class BubbleSort {
             sortedArray.add(Utility.deepCopy(unsortedArray));
             return sortedArray;
         }
+        sortedArray.add(Utility.deepCopy(unsortedArray));
         boolean swap;
         for (int i = 0; i < unsortedArray.length; i++) {
             swap = false;
-            for (int j = 0; j < unsortedArray.length - j - 1; j++)
+            for (int j = 0; j < unsortedArray.length - 1; j++)
                 if (unsortedArray[j] > unsortedArray[j + 1]) {
                     Utility.swap(unsortedArray, j, j + 1);
                     swap = true;
                 }
             sortedArray.add(Utility.deepCopy(unsortedArray));
-            if (swap) break;
+            if (!swap) break;
 
         }
         return sortedArray;
@@ -28,6 +29,7 @@ public class BubbleSort {
 
     public static void print(List<double[]> sortedList) {
         System.out.println("Bubble Sort Starting...\n\n");
+        System.out.println("Running time is O(n^2)...\n");
         Utility.printSteps(sortedList);
         System.out.println("\n\nDone");
     }
