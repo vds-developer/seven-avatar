@@ -14,6 +14,20 @@ public class ReverseInteger {
         return Integer.getInteger(solution);
     }
 
+    public static int ReverseIntegerTextBook(int input) {
+        long solution = 0;
+        while (input != 0){
+            solution = solution * 10 + input % 10;
+            input /= 10;
+        }
+
+            if (solution < Integer.MIN_VALUE || solution > Integer.MAX_VALUE) {
+                return 0;
+            }else {
+                return (int) solution;
+            }
+        }
+
     public static void print(int input) {
         System.out.println("Input: " + input + "\nOutput: " + ReverseInteger(input));
     }
