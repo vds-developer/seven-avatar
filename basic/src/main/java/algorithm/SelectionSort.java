@@ -15,7 +15,6 @@ public class SelectionSort {
 
         sortedArray.add(Utility.deepCopy(unsortedArray));
 
-
         for (int i = 0; i < unsortedArray.length; i++) {
             int minIndex = i;
             for (int j = i + 1; j < unsortedArray.length; j++) {
@@ -30,7 +29,8 @@ public class SelectionSort {
     }
 
     public static void print(List<double[]> sortedList) {
-        System.out.println("Selection Sort Starting...\n");
+        System.out.println("Selection Sort Starting...");
+        System.out.println("Running time is O(n^2)...\n");
         Utility.printSteps(sortedList);
         System.out.println("\nDone");
     }

@@ -1,5 +1,6 @@
 
 import algorithm.BubbleSort;
+import algorithm.InsertionSort;
 import algorithm.SelectionSort;
 import org.apache.commons.cli.*;
 
@@ -9,6 +10,7 @@ public class BasicCommandLine {
 
     private static String selectionSortStr = "selectionSort";
     private static String bubbleSortStr = "bubbleSort";
+    private static String insertionSortStr = "insertionSort";
 
     public static void main(String[] args) {
         Options options = new Options();
@@ -26,7 +28,17 @@ public class BasicCommandLine {
                 .valueSeparator(' ')
                 .longOpt(bubbleSortStr).build();
 
-        options.addOption(selectionSort).addOption(bubbleSort);
+        Option insertionSort = Option.builder()
+                .argName("array").hasArg()
+                .desc("Insertion Sort. ")
+                .numberOfArgs(Option.UNLIMITED_VALUES)
+                .valueSeparator(' ')
+                .longOpt(insertionSortStr).build();
+
+        options.addOption(selectionSort)
+                .addOption(bubbleSort)
+                .addOption(insertionSort);
+
         if(args.length == 0 ) {
             HelpFormatter formatter = new HelpFormatter();
             formatter.printHelp("Sorting Algorithms", options, false);
@@ -52,6 +64,11 @@ public class BasicCommandLine {
         if (line.hasOption(bubbleSortStr)) {
             double[] unsortedArray = Arrays.stream(line.getOptionValues(bubbleSortStr)).mapToDouble(Double::parseDouble).toArray();
             BubbleSort.print(BubbleSort.sort(unsortedArray));
+        }
+
+        if (line.hasOption(insertionSortStr)) {
+            double[] unsortedArray = Arrays.stream(line.getOptionValues(insertionSortStr)).mapToDouble(Double::parseDouble).toArray();
+            InsertionSort.print(InsertionSort.sort(unsortedArray));
         }
 
     }
