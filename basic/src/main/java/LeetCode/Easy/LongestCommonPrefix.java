@@ -19,7 +19,7 @@ public class LongestCommonPrefix {
         if (input.length == 0 ) return "";
         String matchString = input[0];
         for (String word : input) {
-            if (word.indexOf(matchString) != 0 ) {
+            while (word.indexOf(matchString) != 0 ) {
                 matchString = matchString.substring(0, matchString.length() - 1);
             }
         }

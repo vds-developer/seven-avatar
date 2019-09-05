@@ -1,9 +1,7 @@
 package LeetCode.Easy;
 
 import LeetCode.LeetCodeUtil;
-import javafx.util.Pair;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 //
@@ -46,7 +44,7 @@ public class TwoSum {
 
     public static void Print(int[] input, int sum){
         int[] solution = TwoSum(input, sum);
-        System.out.println("Given nums = [" + LeetCodeUtil.ArrayToString(input) + " ]," +
+        System.out.println("Given nums = [" + LeetCodeUtil.ArrayToCommaSeperatedString(input) + " ]," +
                 "Target: " + sum + "\nBecause nums[" + solution[0] + "]" + " nums[" +
                 solution[1] + "] = " + input[solution[0]] + " + " + input[solution[1]] + " = " + sum +
                 "return [" + solution[0] + ", " + solution[1] + "].");
