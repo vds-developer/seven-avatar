@@ -1,10 +1,10 @@
 package algorithm;
 
-import javax.rmi.CORBA.Util;
-import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class MergeSort {
     private static List<Double> sortedList = new ArrayList<>();

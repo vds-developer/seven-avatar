@@ -1,7 +1,5 @@
 package LeetCode.Easy;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 public class PalindromeNumber {
     public static Boolean PalindromeNumber(int number) {
         if (number < 0 || number % 10 == 0 && number != 0) return false;
