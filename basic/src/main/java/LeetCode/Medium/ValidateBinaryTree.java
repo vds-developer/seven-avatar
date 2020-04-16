@@ -1,15 +1,18 @@
-package src.main.java.LeetCode.Medium;
+package LeetCode.Medium;
 
 
-import src.main.java.LeetCode.DataStructure.BinaryTree;
+import LeetCode.DataStructure.BinaryTree;
 
 public class ValidateBinaryTree {
     public static Boolean ValidateBinaryTree(BinaryTree root) {
         if (root == null) return true;
-        return checkLeftAndRight(root) && ValidateBinaryTree(root.left) && ValidateBinaryTree(root.right);
+      return  ValidateBinaryTree(root.root);
+    }
+    private static boolean ValidateBinaryTree(BinaryTree.Node node) {
+        return ValidateBinaryTree(node.left) && ValidateBinaryTree(node.right);
     }
 
-    private static Boolean checkLeftAndRight(BinaryTree root) {
+    private static Boolean checkLeftAndRight(BinaryTree.Node root) {
         return (root.right == null || root.right.value > root.value) &&
                 (root.left == null || root.left.value < root.value);
     }
