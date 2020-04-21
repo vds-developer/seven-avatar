@@ -23,7 +23,7 @@ public class GetMinimumElementRotateSortedArray {
 		if (left == null || left.length < 1) return GetMinimumElement(right);
 		if (right == null || right.length < 1) return GetMinimumElement(left);
 
-		int minimum = 0;
+		int minimum = 1;
 		if (left[0] > left[left.length - 1]){
 			//smallest is in the left side
 			 minimum = GetMinimumElement(left);
