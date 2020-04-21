@@ -26,6 +26,36 @@ public class ArrayGenerator {
 
 	}
 
+	public static int[] GenerateSortedIntArray(int size) {
+		int[] array = generateRandomIntArray(size);
+		Arrays.sort(array);
+		return array;
+	}
+
+	public static int[] GenerateSortedRotatedIntArray(int size) {
+		int[] sortedArray = GenerateSortedIntArray(size);
+		return rotateIntArray(sortedArray, random.nextInt(sortedArray.length));
+
+	}
+
+	static int[] rotateIntArray(int[] array, int rotate) {
+		for (int i = 0; i < rotate; i++) {
+			rotateonce(array);
+		}
+		return array;
+	}
+
+	private static int[] rotateonce(int[] input) {
+		int tmp = input[input.length - 1];
+		for (int i = 0; i < input.length; i++) {
+			int tmp1 = input[i];
+			input[i] = tmp;
+			tmp = tmp1;
+		}
+		return input;
+	}
+
+
 	static void shuffleArray(int[] array) {
 		for (int i = 0; i < array.length; i++) {
 			swapAtIndex(array, i, random.nextInt(array.length));

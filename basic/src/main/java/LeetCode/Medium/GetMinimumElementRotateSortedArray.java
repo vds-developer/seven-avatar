@@ -1,5 +1,8 @@
 package LeetCode.Medium;
 
+import LeetCode.generator.ArrayGenerator;
+import com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction;
+
 import java.util.Arrays;
 
 public class GetMinimumElementRotateSortedArray {
@@ -20,18 +23,29 @@ public class GetMinimumElementRotateSortedArray {
 		if (left == null || left.length < 1) return GetMinimumElement(right);
 		if (right == null || right.length < 1) return GetMinimumElement(left);
 
-
-		if (right[0] > left[left.length - 1] && left[0] < right [right.length -1] ){
+		int minimum = 0;
+		if (left[0] > left[left.length - 1]){
 			//smallest is in the left side
-			return GetMinimumElement(left);
+			 minimum = GetMinimumElement(left);
 
-		} else {
+		} else if (right[0] > right[right.length - 1]) {
 			//smallest is in the right side
-			return GetMinimumElement(right)
+			 minimum = GetMinimumElement(right);
+		} else {
+			if (right[0] > left[0]) return left[0];
+			if (left[0] >= right[0]) return right[0];
 		}
+		return minimum;
 	}
 
 	public static void main(String[] args) {
+		int[] rotateSortedArray = ArrayGenerator.GenerateSortedRotatedIntArray(10);
+		for(int i : rotateSortedArray) {
+			System.out.print(i + " ");
+		}
+		System.out.println();
+
+		System.out.println(GetMinimumElement(rotateSortedArray));
 
 	}
 
